@@ -8,9 +8,11 @@ import pl.edu.agh.mwo.invoice.product.Product;
 
 public class Invoice {
     private Collection<Product> products;
+
     public Invoice() {
         products = new ArrayList<>();
     }
+
     public void addProduct(Product product) {
         if (product == null) {
             throw new IllegalArgumentException("Product cannot be null");
@@ -48,6 +50,6 @@ public class Invoice {
     }
 
     public BigDecimal getTotal() {
-        return null;
+        return getSubtotal().add(getTax());
     }
 }
